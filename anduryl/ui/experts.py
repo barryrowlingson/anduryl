@@ -469,7 +469,7 @@ class DecisionMakerOptions(QtWidgets.QDialog):
             return valid
 
         # Check for NaN's
-        if isinstance(val, (float, np.float)):
+        if isinstance(val, (float, )):
             if np.isnan(val):
                 valid = False
 

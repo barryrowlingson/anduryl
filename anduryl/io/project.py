@@ -266,7 +266,7 @@ class ProjectIO:
         self.project.items.overshoots[:, :] = [item.overshoots for item in savemodel.items.values()]
         self.project.items.questions[:] = [item.question for item in savemodel.items.values()]
         self.project.items.use_quantiles[:, :] = [
-            np.in1d(unique_quantiles, item.quantiles) for item in savemodel.items.values()
+            np.isin(unique_quantiles, item.quantiles) for item in savemodel.items.values()
         ]
 
         # # Add results

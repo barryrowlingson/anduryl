@@ -9,7 +9,7 @@ setup(
     author_email='g.w.f.rongen@tudelft.nl',
     license='GNU license',
     packages=['anduryl', 'anduryl/core', 'anduryl/io', 'anduryl/ui'],
-    install_requires=['numpy', 'PyQt5', 'matplotlib'],
+    install_requires=['numpy', 'PyQt5', 'matplotlib', 'pydantic'],
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Science/Research',
