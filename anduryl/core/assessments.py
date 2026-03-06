@@ -43,8 +43,6 @@ class Assessment:
         quantile : float
             Quantile to add
         """
-        print(f"Adding quantile")
-        print(quantile)
         if not 0.0 < quantile < 1.0:
             raise ValueError("Quantile should be > 0.0 and < 1.0")
 
@@ -55,7 +53,6 @@ class Assessment:
         pos = ([i for i, q in enumerate(self.quantiles) if quantile < q] + [len(self.quantiles)])[0]
         self.project.assessments.quantiles.insert(pos, quantile)
 
-        print(f"Inserted at {pos=}")
         
         # Assessments
         values = self.project.assessments.array.copy()
@@ -70,7 +67,6 @@ class Assessment:
         self.array[:, ~idx, :] = np.nan
         self.calculate_binprobs()
 
-        print(f"index {idx=}")
         # Adjust array of use_quantiles in items class
         values = self.project.items.use_quantiles[:, idx].copy()
         self.project.items.use_quantiles.resize((self.array.shape[2], len(self.quantiles)), refcheck=False)
