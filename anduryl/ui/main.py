@@ -297,15 +297,17 @@ class MainWindow(QtWidgets.QMainWindow):
         set_bounds_action.triggered.connect(self.itemswidget.set_bounds)
         file_menu.addAction(set_bounds_action)
 
+        quantile_menu = menubar.addMenu("&Quantile")
         quantile_action = QtWidgets.QAction(QtGui.QIcon(), "&Quantiles", self)
         quantile_action.setStatusTip("Change quantiles")
         quantile_action.triggered.connect(self.assessmentswidget.change_quantiles)
-        file_menu = menubar.addAction(quantile_action)
+        quantile_menu.addAction(quantile_action)
 
+        calculate_menu = menubar.addMenu("&Calculate")
         calculate_action = QtWidgets.QAction(QtGui.QIcon(), "&Calculate", self)
         calculate_action.setStatusTip("Calculate decision maker or robustness table")
         calculate_action.triggered.connect(self.expertswidget.add_decision_maker)
-        file_menu = menubar.addAction(calculate_action)
+        calculate_menu.addAction(calculate_action)
 
         export_menu = menubar.addMenu("&Export")
         for overview in ["experts", "items", "assessments"]:
