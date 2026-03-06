@@ -127,7 +127,7 @@ class AssessmentsWidget(QtWidgets.QFrame):
         return self.mainwindow.eventFilter(source, event)
 
     def to_csv(self):
-        io.table_to_csv(self.model, self.mainwindow)
+        io.writer.table_to_csv(self.model, self.mainwindow)
 
     def change_quantiles(self, *args, newquantiles=None):
         """
