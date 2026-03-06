@@ -393,7 +393,7 @@ class MainWindow(QtWidgets.QMainWindow):
 
         # Add export Expert scores
         export_scores_action = QtWidgets.QAction(QtGui.QIcon(), "Expert scores", self)
-        export_scores_action.triggered.connect(lambda: io.table_to_csv(resultsoverview.scores_model, self))
+        export_scores_action.triggered.connect(lambda: io.writer.table_to_csv(resultsoverview.scores_model, self))
         self.subresultsmenu[dm_id].addAction(export_scores_action)
 
         # Add export robustness
@@ -403,7 +403,7 @@ class MainWindow(QtWidgets.QMainWindow):
                     QtGui.QIcon(), f"Robustness per {key[:-1].lower()}", self
                 )
                 robustness_action.triggered.connect(
-                    lambda: io.table_to_csv(resultsoverview.robustness_model[key], self)
+                    lambda: io.writer.table_to_csv(resultsoverview.robustness_model[key], self)
                 )
                 self.subresultsmenu[dm_id].addAction(robustness_action)
 
