@@ -1280,9 +1280,9 @@ class PlotDistributionsDialog(QtWidgets.QDialog):
         # Set expert lines
         for i, (idx, item) in enumerate(zip(selected, items)):
             use = self.results.items.use_quantiles[idx]
-            self.lines[item].set_data(assessments[idx][use], i)
+            self.lines[item].set_data(assessments[idx][use], [i])
             for j, quantile in enumerate(self.results.assessments.quantiles):
-                self.markers[item][quantile].set_data(assessments[idx][j], i)
+                self.markers[item][quantile].set_data(assessments[idx][j], [i])
 
         # self.figure.tight_layout()
         self.canvas.draw_idle()
@@ -1381,11 +1381,11 @@ class PlotDistributionsDialog(QtWidgets.QDialog):
             # Set expert lines
             for i, expert in enumerate(experts):
                 use = ~np.isnan(assessments[expert])
-                self.lines[expert].set_data(assessments[expert][use], i)
+                self.lines[expert].set_data(assessments[expert][use], [i])
                 if expert in self.markers:
                     for j, quantile in enumerate(self.results.assessments.quantiles):
                         if use[j]:
-                            self.markers[expert][quantile].set_data(assessments[expert][j], i)
+                            self.markers[expert][quantile].set_data([assessments[expert][j]], [i])
                         else:
                             self.markers[expert][quantile].set_data([], [])
 
