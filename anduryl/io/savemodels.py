@@ -14,7 +14,7 @@ class BaseModel(PydanticBaseModel):
         arbitrary_types_allowed = True
         validate_assignment = True
         extra = "forbid"  # will throw errors so we can fix our models
-        allow_population_by_field_name = True
+        validate_by_name = True
         alias_generator = underscore_to_space
 
 

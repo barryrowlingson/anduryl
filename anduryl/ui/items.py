@@ -69,7 +69,7 @@ class ItemsWidget(QtWidgets.QFrame):
         """
         Calls the anduryl.io.table_to_csv function for the table model
         """
-        io.table_to_csv(self.model, self.mainwindow)
+        io.writer.table_to_csv(self.model, self.mainwindow)
 
     def add_item(self):
         """
