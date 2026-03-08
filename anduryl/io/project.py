@@ -133,7 +133,7 @@ class ProjectIO:
         with path.open("w") as f:
             text = savemodel.json(indent=4)
             # Remove line breaks inside lists (last level of json-file) to make the json easier to read
-            for match in re.findall("\[[\s\S]*?\]", text):
+            for match in re.findall(r"\[[\s\S]*?\]", text):
                 text = text.replace(match, "[" + " ".join(match[1:-1].split()) + "]")
 
             f.write(text)
