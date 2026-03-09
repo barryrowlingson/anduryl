@@ -68,7 +68,7 @@ class Assessment:
         self.calculate_binprobs()
 
         # Adjust array of use_quantiles in items class
-        values = self.project.items.use_quantiles[:, idx].copy()
+        values = self.project.items.use_quantiles[:, :].copy()
         self.project.items.use_quantiles.resize((self.array.shape[2], len(self.quantiles)), refcheck=False)
         self.project.items.use_quantiles[:, idx] = values
         self.project.items.use_quantiles[:, ~idx] = False
