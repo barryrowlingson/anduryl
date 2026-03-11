@@ -213,7 +213,7 @@ def read_excalibur(dttfile: Union[str, Path], rlsfile: Union[str, Path]) -> Save
         # 1 + 4 + 1 + 8 + 1 + 4 + 1 = 20
         # Find a pattern of [group of decimals, space, something, space, group of decimals]
         ids.append(line[20:].strip())
-        # pattern = re.findall("([^\s]+\s+[^\s]+\s+[^\s]+)", line.strip())[0]
+        # pattern = re.findall(r"([^\s]+\s+[^\s]+\s+[^\s]+)", line.strip())[0]
         # ids.append(line[line.find(pattern) + len(pattern) :].strip())
 
     # Get expert ids
@@ -255,7 +255,7 @@ def read_excalibur(dttfile: Union[str, Path], rlsfile: Union[str, Path]) -> Save
     for line in lines:
         value = line[:endchr].split()[-1]
         linepart = line[: line.find(value)].strip()
-        qid = re.findall("[^\s]+(.+)", linepart)[0].strip()
+        qid = re.findall(r"[^\s]+(.+)", linepart)[0].strip()
         realdict[qid] = value
         questiondict[qid] = line[endchr + 3 :].strip()
 
